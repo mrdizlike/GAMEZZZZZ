@@ -1,0 +1,5 @@
+Ссылки на гайды:
+https://www.youtube.com/playlist?list=PLYDpzhh5zHLYJhwxATN8H4nJp75yhvY9N -> создаем РПГ.
+https://www.youtube.com/watch?v=fouT5jMRI2g -> создаем КИ(карточная игра).
+https://www.youtube.com/playlist?list=PL0isw1lWHi7sYqu3AFOw_ZPOiCePOL6xf -> создание TD(Tower Defence).
+https://docs.unity3d.com/ru/current/Manual/CreateDestroyObjects.html -> создание и уничтожение GameObjects
