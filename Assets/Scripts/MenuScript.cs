@@ -16,37 +16,61 @@ public class MenuScript : MonoBehaviour {
 	private TextMesh txt;
 
 	//Свет, который присваиваем в инспекторе
-	public Light light;
-	//Его начальные координаты, что бы возвращаться туда, по Z не перемещаем
-	private Vector3 defaultPos;
+	public Light flashlight; 
+	//Его начальные координаты, что бы возвращаться туда
+	private Vector3 DefaultPos;
+
 
 	//Цвет ( RGB )
-	private float red = 200;
-	private float green = 0;
-	private float blue = 0;
+	private float red = 200.0f;
+	private float green = 0.0f;
+	private float blue = 0.0f;
+
+	//Нужно ли двигаться?
+	private bool MoveEnabled = false;
+	//Конечная точка
+	private Vector3 EndPos;
 
 	void Start () {
 		txt = GetComponent<TextMesh> (); //Пприсваиваем txt наш текст
 
-		//Присваиваем defaultPos координаты света
-		defaultPos = light.transform.position;
+		//Присваиваем DefaultPos координаты света
+		DefaultPos = flashlight.transform.position;
 		}
+
+	void Update (){
+
+		//Если нужно двигаться
+		if (MoveEnabled) {
+			
+			//Если мы уже в конечной точке
+			if (flashlight.transform.position == EndPos) {
+				MoveEnabled = false; //Нам не нужно двигаться
+			}
+
+			flashlight.transform.position = EndPos; //Движение
+		}
+	}
 
 	//Если наводим мышь на кнопку
 	void OnMouseEnter()
 	{
 		txt.color = new Color(red,blue,green); 		//Подсветка
-		light.transform.position = new Vector3		//Перемещаем свет по X и Y, Z не меняем
-			(txt.transform.position.x+(float)0.9,	//добавим по X, убавим по Y, чтобы было по центру
-			 txt.transform.position.y-(float)0.3,	
-			 defaultPos.z);  						
+
+		EndPos = new Vector3						//Назначаем конечную точку, на кнопку
+			(txt.transform.position.x,
+			txt.transform.position.y,
+			DefaultPos.z); 				
+		
+		MoveEnabled = true; 						//Двигаемся
 	}
 
 	//Если убираем мышь с кнопки
 	void OnMouseExit()
 	{
 		txt.color = new Color(255,255,255);			//Отключаем подсветку
-		light.transform.position = defaultPos;  	//Перемещаем свет по X и Y на defaultPos
+		EndPos = DefaultPos; 						//Назначаем конечную точку, нам нужно в начало
+		MoveEnabled = true; 						//Двигаемся
 	}
 
 	//Нажимаем на кнопку

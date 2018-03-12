@@ -312,7 +312,7 @@ MonoBehaviour:
   Begin: 1
   Options: 0
   Exit: 0
-  light: {fileID: 784558614}
+  flashlight: {fileID: 784558614}
 --- !u!1 &520374615
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,6 +353,7 @@ GameObject:
   m_Component:
   - component: {fileID: 784558615}
   - component: {fileID: 784558614}
+  - component: {fileID: 784558616}
   m_Layer: 0
   m_Name: MenuLight
   m_TagString: Untagged
@@ -409,6 +410,21 @@ Transform:
   m_Father: {fileID: 1224113132}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &784558616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 784558613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94b84f44d775b60419b360b467914245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveEnabled: 0
+  EndPoint: {x: 0, y: 0, z: 0}
+  StartPoint: {x: 0, y: 0, z: 0}
+  obj: {fileID: 0}
 --- !u!1 &852514748
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,7 +619,7 @@ MonoBehaviour:
   Begin: 0
   Options: 1
   Exit: 0
-  light: {fileID: 784558614}
+  flashlight: {fileID: 784558614}
 --- !u!1 &1224113131
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,4 +765,4 @@ MonoBehaviour:
   Begin: 0
   Options: 0
   Exit: 1
-  light: {fileID: 784558614}
+  flashlight: {fileID: 784558614}
