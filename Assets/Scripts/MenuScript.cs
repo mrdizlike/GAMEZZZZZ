@@ -15,31 +15,31 @@ public class MenuScript : MonoBehaviour {
 	public bool Back = false;
 
 	//Текст кнопки и его свойства
-	private TextMesh txt;
+	private TextMesh _txt;
 
 	//Цвет ( RGB )
-	private float red = 200.0f;
-	private float green = 0.0f;
-	private float blue = 0.0f;
+	private float _red = 200.0f;
+	private float _green = 0.0f;
+	private float _blue = 0.0f;
 
 	//Камеры, присваиваем в инспекторе
 	public Camera MenuCam;
 	public Camera SettingsCam;
 
 	void Start () {
-		txt = GetComponent<TextMesh> (); //Пприсваиваем txt наш текст
+		_txt = GetComponent<TextMesh> (); //Пприсваиваем txt наш текст
 	}
 
 	//Если наводим мышь на кнопку
 	void OnMouseEnter()
 	{
-		txt.color = new Color(red,blue,green); 		//Подсветка
+		_txt.color = new Color(_red,_blue,_green); 		//Подсветка
 	}
 
 	//Если убираем мышь с кнопки
 	void OnMouseExit()
 	{
-		txt.color = new Color(255,255,255);			//Отключаем подсветку
+		_txt.color = new Color(255,255,255);			//Отключаем подсветку
 	}
 
 	//Нажимаем на кнопку
