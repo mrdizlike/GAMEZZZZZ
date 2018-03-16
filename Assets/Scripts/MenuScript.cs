@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour {
 
@@ -11,66 +12,34 @@ public class MenuScript : MonoBehaviour {
 	public bool Begin = false;
 	public bool Options = false;
 	public bool Exit = false;
+	public bool Back = false;
 
 	//Текст кнопки и его свойства
 	private TextMesh txt;
-
-	//Свет, который присваиваем в инспекторе
-	public Light flashlight; 
-	//Его начальные координаты, что бы возвращаться туда
-	private Vector3 DefaultPos;
-
 
 	//Цвет ( RGB )
 	private float red = 200.0f;
 	private float green = 0.0f;
 	private float blue = 0.0f;
 
-	//Нужно ли двигаться?
-	private bool MoveEnabled = false;
-	//Конечная точка
-	private Vector3 EndPos;
+	//Камеры, присваиваем в инспекторе
+	public Camera MenuCam;
+	public Camera SettingsCam;
 
 	void Start () {
 		txt = GetComponent<TextMesh> (); //Пприсваиваем txt наш текст
-
-		//Присваиваем DefaultPos координаты света
-		DefaultPos = flashlight.transform.position;
-		}
-
-	void Update (){
-
-		//Если нужно двигаться
-		if (MoveEnabled) {
-			
-			//Если мы уже в конечной точке
-			if (flashlight.transform.position == EndPos) {
-				MoveEnabled = false; //Нам не нужно двигаться
-			}
-
-			flashlight.transform.position = EndPos; //Движение
-		}
 	}
 
 	//Если наводим мышь на кнопку
 	void OnMouseEnter()
 	{
 		txt.color = new Color(red,blue,green); 		//Подсветка
-
-		EndPos = new Vector3						//Назначаем конечную точку, на кнопку
-			(txt.transform.position.x,
-			txt.transform.position.y,
-			DefaultPos.z); 				
-		
-		MoveEnabled = true; 						//Двигаемся
 	}
 
 	//Если убираем мышь с кнопки
 	void OnMouseExit()
 	{
 		txt.color = new Color(255,255,255);			//Отключаем подсветку
-		EndPos = DefaultPos; 						//Назначаем конечную точку, нам нужно в начало
-		MoveEnabled = true; 						//Двигаемся
 	}
 
 	//Нажимаем на кнопку
@@ -78,12 +47,26 @@ public class MenuScript : MonoBehaviour {
 	{
 		//Если это "Старт"
 		if (Begin) {
-			// ...
+			
+			//Грузим сцену "Level1", которую указали в Build Settings проекта
+			SceneManager.LoadScene("Level1");
 		}
 
 		//Если это "Настройки"
 		if (Options) {
-			// ...
+			
+			//Переключаемся на SettingsCam
+			MenuCam.enabled = false;
+			SettingsCam.enabled = true;
+		}
+
+		//Если это "Назад"
+		if (Back) {
+			
+			//Переключаемся на MenuCam
+
+			SettingsCam.enabled = false;
+			MenuCam.enabled = true;
 		}
 
 		//Если это "Выход"
