@@ -14,6 +14,10 @@ public class MenuScript : MonoBehaviour {
 	public bool Exit = false;
 	public bool Back = false;
 
+	//Камеры, присваиваем в инспекторе
+	public Camera MenuCam;
+	public Camera SettingsCam;
+
 	//Текст кнопки и его свойства
 	private TextMesh _txt;
 
@@ -22,12 +26,8 @@ public class MenuScript : MonoBehaviour {
 	private float _green = 0.0f;
 	private float _blue = 0.0f;
 
-	//Камеры, присваиваем в инспекторе
-	public Camera MenuCam;
-	public Camera SettingsCam;
-
 	void Start () {
-		_txt = GetComponent<TextMesh> (); //Пприсваиваем txt наш текст
+		_txt = GetComponent<TextMesh> (); 				//Пприсваиваем txt наш текст
 	}
 
 	//Если наводим мышь на кнопку
@@ -48,8 +48,7 @@ public class MenuScript : MonoBehaviour {
 		//Если это "Старт"
 		if (Begin) {
 			
-			//Грузим сцену "Level1", которую указали в Build Settings проекта
-			SceneManager.LoadScene("Level1");
+			SceneManager.LoadScene("Level1");			//Грузим сцену "Level1", которую указали в Build Settings проекта
 		}
 
 		//Если это "Настройки"
@@ -64,7 +63,6 @@ public class MenuScript : MonoBehaviour {
 		if (Back) {
 			
 			//Переключаемся на MenuCam
-
 			SettingsCam.enabled = false;
 			MenuCam.enabled = true;
 		}

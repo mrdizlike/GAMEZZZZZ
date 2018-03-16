@@ -5,6 +5,7 @@ using UnityEngine;
 public class HeroMovement : MonoBehaviour {
 
 	public float speed = 2.0f; 										//Cкорость
+
 	private CharacterController _charController; 					//Переменная для ссылки на компонент типа CharacterController
 	private Vector3 _movement = new Vector3();						//Создание вектора для будущей его передачи в Move
 
