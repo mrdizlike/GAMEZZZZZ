@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: d67b3dac6b43fe348989df353ed1afe0
-timeCreated: 1523454778
+guid: 01ac57f3c22e12845a10729317362c51
+timeCreated: 1523599881
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
@@ -46,11 +46,11 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 140, y: 145, z: 1587, w: 1703}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationDetail: 0
+  spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
   maxTextureSizeSet: 0
@@ -80,17 +80,7 @@ TextureImporter:
   spriteSheet:
     serializedVersion: 2
     sprites: []
-    outline:
-    - - {x: -711, y: 818}
-      - {x: -835, y: 818}
-      - {x: -843, y: 817}
-      - {x: -851, y: 778}
-      - {x: -859, y: -226}
-      - {x: -859, y: -849}
-      - {x: -808, y: -849}
-      - {x: -589, y: -790}
-      - {x: -562, y: -668}
-      - {x: -531, y: 818}
+    outline: []
     physicsShape: []
   spritePackingTag: 
   userData: 
