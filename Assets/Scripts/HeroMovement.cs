@@ -24,9 +24,8 @@ public class HeroMovement : MonoBehaviour {
 	
 		_movement *= Time.deltaTime;								//Независимость от кадровой частоты
 		_movement = transform.TransformDirection (_movement);		//Преобразование локальных координат в глобальные
-		_charController.Move (_movement);							//Движение персонажа
-
-	}
+		_charController.Move (_movement);                           //Движение персонажа
+    }
     public enum direction : int
     {
         front = 1,
@@ -36,11 +35,11 @@ public class HeroMovement : MonoBehaviour {
     };
     public int returnAnim()
     {
-        Debug.Log(deltaZ);
-        if (deltaZ < -0.5f) { return (int)direction.front; }
-        if (deltaZ > 0.5f) { return (int)direction.back; }
-        if (deltaX < -0.5f) { return (int)direction.left; }
-        if (deltaX > 0.5f) { return (int)direction.right; }
+        
+        if (deltaZ < -0.5f) {  return (int)direction.front; }
+        if (deltaZ > 0.5f) {  Debug.Log("deltaZ: "); Debug.Log(deltaZ); return (int)direction.back; }
+        if (deltaX < -0.5f) {  Debug.Log("deltaX: "); Debug.Log(deltaX); return (int)direction.left; }
+        if (deltaX > 0.5f) {  return (int)direction.right; }
         return 0;
     }
     

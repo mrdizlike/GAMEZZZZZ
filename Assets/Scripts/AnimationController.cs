@@ -32,6 +32,6 @@ public class AnimationController : MonoBehaviour {
         _animator.SetBool("goFront", false);
         _animator.SetBool("goBack", false);
         _animator.SetBool("goLeft", false);
-        _animator.SetBool("goRigt", false);
+        _animator.SetBool("goRight", false);
     }
 }
