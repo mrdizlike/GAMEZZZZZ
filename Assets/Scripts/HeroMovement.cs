@@ -5,6 +5,7 @@ using UnityEngine;
 public class HeroMovement : MonoBehaviour {
 
 	public float speed = 2.0f; 										//Cкорость
+    public float StartAnim = 0f;
     float deltaX = 0f;
     float deltaZ = 0f;
 
@@ -31,15 +32,23 @@ public class HeroMovement : MonoBehaviour {
         front = 1,
         back,
         left,
-        right
+        right,
+        DiagLeftFront,
+        DiagLeftBack,
+        DiagRightFront,
+        DiagRightBack
     };
     public int returnAnim()
     {
-        
-        if (deltaZ < -0.5f) {  return (int)direction.front; }
-        if (deltaZ > 0.5f) {  Debug.Log("deltaZ: "); Debug.Log(deltaZ); return (int)direction.back; }
-        if (deltaX < -0.5f) {  Debug.Log("deltaX: "); Debug.Log(deltaX); return (int)direction.left; }
-        if (deltaX > 0.5f) {  return (int)direction.right; }
+        if (deltaZ < -StartAnim && deltaX <-StartAnim) { Debug.Log("diagfrontleft"); return (int)direction.DiagLeftFront;  }
+        if (deltaZ < -StartAnim && deltaX > StartAnim) { Debug.Log("diagrightfront"); return (int)direction.DiagRightFront; }
+        if (deltaZ > StartAnim && deltaX > StartAnim) { Debug.Log("diagRightBack"); return (int)direction.DiagRightBack;  }
+        if (deltaZ > StartAnim && deltaX < -StartAnim) { Debug.Log("DiagLeftBack"); return (int)direction.DiagLeftBack;   }
+        if (deltaZ < -StartAnim) { Debug.Log("front"); return (int)direction.front; }
+        if (deltaZ > StartAnim) { Debug.Log("back"); return (int)direction.back;  }
+        if (deltaX < -StartAnim) { Debug.Log("left"); return (int)direction.left;  }
+        if (deltaX > StartAnim) { Debug.Log("right"); return (int)direction.right; }
+        Debug.Log("IDLE");
         return 0;
     }
     
